@@ -35,3 +35,6 @@ C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.vbproj.CoreComp
 C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.exe
 C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.xml
 C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.pdb
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.vbproj.CopyComplete

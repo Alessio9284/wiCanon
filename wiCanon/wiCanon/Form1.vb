@@ -11,13 +11,16 @@ Public Class WiCanon
     Dim client As TcpClient
     Dim dati As NetworkStream
     Dim thread As Thread
+    Dim volume As Integer
     Dim channels() As String = {"http://bit.ly/rai1qdr", "http://bit.ly/rai2qdr"}
-
+    Dim currentChannel As String
 
     Private Sub wiCanon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Visible = False
         Thread.Sleep(3000)
         Visible = True
+
+        volume = 256
 
         thread = New Thread(AddressOf ThreadTask) With {
             .IsBackground = True
@@ -26,17 +29,44 @@ Public Class WiCanon
 
 
     End Sub
+    Private Sub changeVolume(v As Boolean)
+        If (v) Then
+            If (volume + 10 > 1024) Then
+            Else
+                volume -= 10
+            End If
+
+        Else
+            If (volume - 10 < 0) Then
+            Else
+                volume -= 10
+            End If
+        End If
+        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
+        Threading.Thread.Sleep(1000)
+        Process.Start("CMD", "/C  cd C:\Program Files\VideoLAN\VLC & vlc --fullscreen --volume=" + Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
+
+    End Sub
+    Private Sub Mute()
+        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
+        Threading.Thread.Sleep(1000)
+        Process.Start("CMD", "/C  cd C:\Program Files\VideoLAN\VLC & vlc --noaudio --fullscreen --volume=" + Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
+
+
+    End Sub
     Private Function GetChannelIP(k As String)
         Return channels(Convert.ToInt32(k) - 1)
     End Function
-    Private Function Command(k As String)
+    Private Function Command(k As Char)
         Select Case k
             Case "s"
-                Application.Exit()
-            Case "vm"
-                'Audioswitcher.audioapi
-            Case "vp"
-                'Audioswitcher.audioapi
+                Environment.Exit(0)
+            Case "m"
+                changeVolume(False)
+            Case "p"
+                changeVolume(True)
+            Case "l"
+                Mute()
         End Select
     End Function
     Private Sub ThreadTask()
@@ -57,21 +87,28 @@ Public Class WiCanon
 
                     Dim bytes(client.ReceiveBufferSize) As Byte
                     dati.Read(bytes, 0, client.ReceiveBufferSize)
+                    Dim numero(1) As String
+                    numero(0) = Encoding.ASCII.GetString(bytes)
+                    If (numero(0) = "") Then
 
-                    Dim numero As String = Encoding.ASCII.GetString(bytes)
-                    Debug.Print("Dato memorizzato: " + numero)
-                    Process.Start("CMD", "/C taskkill /im vlc.exe /f")
-                    Threading.Thread.Sleep(1000)
-                    Dim chars() As Char = numero
-                    For Each c As Char In chars
-                        If IsNumeric(c) Then
-                            Process.Start("CMD", "/C  cd C:\Program Files\VideoLAN\VLC & vlc --fullscreen " + GetChannelIP(numero))
+                    Else
+
+
+                        Debug.Print("Dato memorizzato: " + numero(0))
+                        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
+                        Threading.Thread.Sleep(1000)
+
+                        If IsNumeric(numero(0)) Then
+                            Debug.Print("ka")
+                            Process.Start("CMD", "/C  cd C:\Program Files\VideoLAN\VLC & vlc --fullscreen --volume " + volume.ToString + " " + GetChannelIP(numero(0)))
+                            currentChannel = GetChannelIP(numero(0))
                         Else
                             ' In base alla lettera chiude l'applicazione o alza il volume ecc..
-                            Command(numero)
+                            Command(numero(0))
+
                         End If
-                        Exit For
-                    Next
+
+                    End If
 
 
                 Catch e As Exception
