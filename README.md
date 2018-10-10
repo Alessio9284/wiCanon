@@ -8,7 +8,7 @@ wiCanon
 - La finestra del programma permette di vedere alcuni canali tv e il telecomando connesso ala rete permette di comandarla.
 
 ## Scelte tecnologiche
-- Visual Basic per pc Windows (implementazione Java successivamente per supportare tutti i sistemi operativi)
+- Visual Basic per pc (Visual Basic)
 - Android Studio per l'app dello Smartphone (Java)
 - Utilizzo del protocollo TCP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
 
