@@ -5,7 +5,7 @@
 wiCanon
 
 ## Descrizione del progetto
-- La finestra del programma permette di vedere alcuni canali tv e il telecomando connesso a internet permette di comandarla.
+- La finestra del programma permette di vedere alcuni canali tv e il telecomando connesso ala rete permette di comandarla.
 
 ## Scelte tecnologiche
 - Visual Basic per pc Windows (implementazione Java successivamente per supportare tutti i sistemi operativi)
@@ -13,15 +13,13 @@ wiCanon
 - Utilizzo del protocollo TCP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
 
 ## Milestone 1 (13/10/2018)
-- Creare una finestra che permette di vedere il browser
-- Creare l'app che permette (almeno) di scegliere il canale
+- Creare una finestra che permette di vedere i canali
+- Creare l'app che permette di scegliere il canale
 
 ## Demo 1 (27/10/2018)
 - Cambiare canale
 - Modificare il volume
 
-
 ## Finale (17/11/2018)
-- (Extra) Cercare cose su internet (mediante controller per cursore)
 
 Powered by sfemat e Alessio9284
