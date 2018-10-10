@@ -23,7 +23,6 @@ Partial Class WiCanon
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(WiCanon))
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.SuspendLayout()
         '
         'WiCanon
@@ -42,5 +41,4 @@ Partial Class WiCanon
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 End Class
