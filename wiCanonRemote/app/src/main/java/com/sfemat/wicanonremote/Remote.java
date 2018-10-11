@@ -11,51 +11,58 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class Remote   extends AppCompatActivity {
-    public static String vv;
+public class Remote extends AppCompatActivity
+{
+    public static String opzione;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remote);
-        StrictMode.ThreadPolicy policy =
-                new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
     }
 
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
         Button temp = (Button) v.findViewById(v.getId());
-        Remote.vv = temp.getText().toString();
-        System.out.println(Remote.vv);
+        Remote.opzione = temp.getText().toString();
+        System.out.println(Remote.opzione);
         new ClientThread().run();
     }
+}
 
-
-    }
-
-class ClientThread implements Runnable{
-    public static final String SERVER_IP = "192.168.1.116";
+class ClientThread implements Runnable
+{
+    public static final String SERVER_IP = "192.168.1.1"; // 192.168.1.116
     public static final int SERVER_PORT = 1027;
     private Socket socket;
-    @Override
-    public void run() {
-        try {
 
+    @Override
+    public void run()
+    {
+        try
+        {
             socket = new Socket(SERVER_IP, SERVER_PORT);
 
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeChars(Remote.vv);
+            out.writeChars(Remote.opzione);
             out.flush();
             socket.close();
 
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+        }
+        catch (UnknownHostException e)
+        {
             e.printStackTrace();
         }
-
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
