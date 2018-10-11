@@ -19,6 +19,7 @@ wiCanon
 ## Demo 1 (27/10/2018)
 - Cambiare canale
 - Modificare il volume
+- Canale + e -
 
 ## Finale (17/11/2018)
 
