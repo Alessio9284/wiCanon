@@ -27,42 +27,11 @@ public class Remote extends AppCompatActivity
     public void onClick(View v)
     {
         Button temp = (Button) v.findViewById(v.getId());
+        //Memorizza il carattere del pulsante premuto
         Remote.opzione = temp.getText().toString();
         System.out.println(Remote.opzione);
+        //Crea e avvia un thread
         new ClientThread().run();
     }
 }
 
-class ClientThread implements Runnable
-{
-    public static final String SERVER_IP = "192.168.1.1"; // 192.168.1.116
-    public static final int SERVER_PORT = 1027;
-    private Socket socket;
-
-    @Override
-    public void run()
-    {
-        try
-        {
-            socket = new Socket(SERVER_IP, SERVER_PORT);
-
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeChars(Remote.opzione);
-            out.flush();
-            socket.close();
-
-        }
-        catch (UnknownHostException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-}
