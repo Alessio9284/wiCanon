@@ -17,13 +17,12 @@ Public Class Funzioni
     Public currentChannel As String
 
     Public Sub changeVolume(v As Boolean)
-        'Aumenta volume
+        'volume
         If (v) Then
             If (volume + 10 > 1024) Then
             Else
                 volume -= 10
             End If
-            'Diminuisci volume
         Else
             If (volume - 10 < 0) Then
             Else
@@ -35,7 +34,6 @@ Public Class Funzioni
         Thread.Sleep(1000)
         Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc --fullscreen --volume=" +
                       Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
-        ' \Program Files
     End Sub
 
     Public Sub mute()
@@ -44,7 +42,6 @@ Public Class Funzioni
         Thread.Sleep(1000)
         Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc --noaudio --fullscreen --volume=" +
                       Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
-        ' \Program Files
     End Sub
     'Restituisce l'indirizzo del canale
     Public Function GetChannelIP(k As String)

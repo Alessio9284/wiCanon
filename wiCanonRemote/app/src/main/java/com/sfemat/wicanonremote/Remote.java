@@ -1,15 +1,10 @@
 package com.sfemat.wicanonremote;
 
-import android.app.Activity;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Remote extends AppCompatActivity
 {
