@@ -3,6 +3,7 @@ package com.sfemat.wicanonremote;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +24,8 @@ public class settings extends AppCompatActivity {
         e  = (EditText)findViewById(R.id.editText);
         //Inserisci l'ip memorizzato nel campo
         try{
-            e.setText(sharedPref.getString("ipp",""));
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            e.setText(preferences.getString("ip", ""));
         }
         catch (Exception e){
 
@@ -36,12 +38,13 @@ public class settings extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         ClientThread.SERVER_IP = e.getText().toString();
-                        Intent intent = new Intent(settings.this, Remote.class);
 
-                        sharedPref= getSharedPreferences("ip", Context.MODE_PRIVATE);
-                        editor=sharedPref.edit();
-                        editor.putString("ipp", e.getText().toString());
-                        editor.commit();
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(settings.this);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("ip",ClientThread.SERVER_IP);
+                        editor.apply();
+
+                        Intent intent = new Intent(settings.this, Remote.class);
                         startActivity(intent);
                     }
                 });

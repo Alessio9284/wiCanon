@@ -1,43 +1,28 @@
 package com.sfemat.wicanonremote;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import android.util.Log;
 
-class ClientThread implements Runnable
-{
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.SocketException;
+class ClientThread implements Runnable {
     public static String SERVER_IP = "192.168.1.1"; // 192.168.1.116
     public static final int SERVER_PORT = 1027;
-    private Socket socket;
-
     @Override
-    public void run()
-    {
-        try
-        {
-            //Crea un nuovo socket
-            socket = new Socket(SERVER_IP, SERVER_PORT);
-            //Crea uno stream di output verso il socket
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            //Scrivici il carattere
-            out.writeChars(Remote.opzione);
-            //Chiudi il socket
-            out.flush();
-            socket.close();
-
-        }
-        catch (UnknownHostException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
+    public void run() {
+        try {
+            DatagramSocket udpSocket = new DatagramSocket(SERVER_PORT);
+            InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
+            byte[] buf = (Remote.opzione).getBytes();
+            DatagramPacket packet = new DatagramPacket(buf, buf.length,serverAddr, SERVER_PORT);
+            udpSocket.send(packet);
+            udpSocket.close();
+        } catch (SocketException e) {
+            Log.e("Udp:", "Socket Error:", e);
+        } catch (IOException e) {
+            Log.e("Udp Send:", "IO Error:", e);
         }
     }
 }
