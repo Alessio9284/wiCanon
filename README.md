@@ -10,9 +10,9 @@ wiCanon
 ## Scelte tecnologiche
 - Visual Basic per pc (Visual Basic)
 - Android Studio per l'app dello Smartphone (Java)
-- Utilizzo del protocollo TCP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
+- Utilizzo del protocollo UDP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
 
-## Milestone 1 (13/10/2018)
+## Milestone 1 (15/10/2018)
 - Creare una finestra che permette di vedere i canali
 - Creare l'app che permette di scegliere il canale
 
