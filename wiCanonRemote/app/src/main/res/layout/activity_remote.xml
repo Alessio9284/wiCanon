@@ -51,8 +51,63 @@
         android:textColor="@android:color/transparent"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pagSu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:text="@string/pagSu"
+        android:textColor="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zero" />
+
+    <Button
+        android:id="@+id/volSu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="106dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:text="@string/volSu"
+        android:textColor="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/volGiu"
+        app:layout_constraintTop_toBottomOf="@+id/nine" />
+
+    <Button
+        android:id="@+id/volGiu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="106dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:text="@string/volGiu"
+        android:textColor="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seven" />
+
+    <Button
+        android:id="@+id/pagGiu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="107dp"
+        android:background="@android:color/transparent"
+        android:onClick="onClick"
+        android:text="@string/pagGiu"
+        android:textColor="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zero" />
 
     <Button
         android:id="@+id/two"

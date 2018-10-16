@@ -50,6 +50,7 @@ Public Class WiCanon
                 Chr(34) + func.volume.ToString + Chr(34) + " " + func.GetChannelIP(opzione))
 
                 func.currentChannel = func.GetChannelIP(opzione)
+
                 'Altrimenti esegui la funzione correlata alla lettera
             Else
                 ' In base alla lettera chiude l'applicazione o alza il volume ecc..

@@ -43,10 +43,13 @@ Public Class Funzioni
         Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc --noaudio --fullscreen --volume=" +
                       Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
     End Sub
+
     'Restituisce l'indirizzo del canale
     Public Function GetChannelIP(k As String)
         Return channels(Convert.ToInt32(k) - 1)
     End Function
+
+
 
     Public Function Command(k As Char)
         Select Case k
@@ -56,8 +59,12 @@ Public Class Funzioni
                 changeVolume(False)
             Case "p"
                 changeVolume(True)
+            Case "ps"
+                ' da fare
+            Case "pg"
+                ' da fare
             Case "l"
-                mute()
+                mute() ' da fare il bottone
         End Select
     End Function
 End Class

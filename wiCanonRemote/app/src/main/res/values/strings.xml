@@ -8,6 +8,11 @@
     <string name="ip">Computer IP:</string>
     <string name="onoff">s</string>
 
+    <string name="pagSu">ps</string>
+    <string name="pagGiu">pg</string>
+    <string name="volSu">p</string>
+    <string name="volGiu">m</string>
+
     <string name="uno">1</string>
     <string name="due">2</string>
     <string name="tre">3</string>
