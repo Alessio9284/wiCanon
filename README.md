@@ -12,7 +12,7 @@ wiCanon
 - Android Studio per l'app dello Smartphone (Java)
 - Utilizzo del protocollo UDP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
 
-## Milestone 1 (15/10/2018)
+## Milestone 1 (15/10/2018) https://drive.google.com/open?id=11wrn6JuezUIuV2wVvY1pmsruhUc9Vq_I
 - Creare una finestra che permette di vedere i canali
 - Creare l'app che permette di scegliere il canale
 
