@@ -1,7 +1,7 @@
 ﻿Imports System.Threading
 
 Public Class Funzioni
-    Public volume As Integer
+    Public volume As Integer = 256
     Public channels() As String = {
         "http://mediapolisevent.rai.it/relinker/relinkerServlet.htm?cont=2606803",
         "http://bit.ly/rai2qdr",
@@ -14,10 +14,18 @@ Public Class Funzioni
         "http://par-1.ml/hls/59c39cf8-3388-ebfc-1dcd-d660c566f7c0.m3u8",
         "http://skyianywhere2-i.akamaihd.net/hls/live/200275/tg24/playlist.m3u8"
     }
-    Public currentChannel As String
+    Public currentChannelString As String
+    Public currentChannelInteger As Integer = 0
+
+    Public Sub close_openVLC(volumee As Integer, canalee As String, Optional audio As String = "")
+        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
+        Thread.Sleep(1000)
+        Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc " + audio + " --fullscreen --volume=" +
+                      Chr(34) + volumee.ToString + Chr(34) + " " + canalee)
+    End Sub
 
     Public Sub changeVolume(v As Boolean)
-        'volume
+        'Volume
         If (v) Then
             If (volume + 10 > 1024) Then
             Else
@@ -29,42 +37,60 @@ Public Class Funzioni
                 volume -= 10
             End If
         End If
-        'Chiudi eventuali VLC aperti e riaprilo cambiando volume
-        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
-        Thread.Sleep(1000)
-        Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc --fullscreen --volume=" +
-                      Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
+
+        close_openVLC(volume, currentChannelString)
     End Sub
 
     Public Sub mute()
-        'Chiudi VLC aperti e riaprilo mutando il volume
-        Process.Start("CMD", "/C taskkill /im vlc.exe /f")
-        Thread.Sleep(1000)
-        Process.Start("CMD", "/C cd C:\Program Files\VideoLAN\VLC & vlc --noaudio --fullscreen --volume=" +
-                      Chr(34) + volume.ToString + Chr(34) + " " + currentChannel)
+        'Chiudi VLC e riaprilo mutando il volume
+        close_openVLC(volume, currentChannelString, "--noaudio")
     End Sub
 
     'Restituisce l'indirizzo del canale
-    Public Function GetChannelIP(k As String)
-        Return channels(Convert.ToInt32(k) - 1)
+    Public Function GetChannelIP(canale As Integer)
+        Return channels(canale)
     End Function
 
+    Public Sub pag(queue As Boolean)
+        Debug.Print("Canale corrente: " + (currentChannelInteger + 1).ToString)
 
+        'Se è 0 e si vuole retrocedere di canale si va all'ultimo
+        If (currentChannelInteger = 0 And queue = False) Then
+            currentChannelInteger = channels.Length - 1
 
-    Public Function Command(k As Char)
-        Select Case k
+            'Se è l'ultimo canale e si vuole avanzare si va al primo
+        ElseIf (currentChannelInteger = (channels.Length - 1) And queue = True) Then
+            currentChannelInteger = 0
+
+            'Caso normale modifica la variabile del canale corrente in base al comando
+        Else
+            If (queue) Then
+                currentChannelInteger += 1
+            Else
+                currentChannelInteger -= 1
+            End If
+        End If
+
+        Debug.Print("Canale modificato: " + (currentChannelInteger + 1).ToString)
+
+        close_openVLC(volume, GetChannelIP(currentChannelInteger))
+    End Sub
+
+    Public Sub Command(comando As String)
+        Select Case comando
             Case "s"
+                Process.Start("CMD", "/C taskkill /im vlc.exe /f")
                 Environment.Exit(0)
             Case "m"
                 changeVolume(False)
             Case "p"
                 changeVolume(True)
             Case "ps"
-                ' da fare
+                pag(True)
             Case "pg"
-                ' da fare
+                pag(False)
             Case "l"
-                mute() ' da fare il bottone
+                mute()
         End Select
-    End Function
+    End Sub
 End Class
