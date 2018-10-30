@@ -33,6 +33,7 @@ https://drive.google.com/open?id=11wrn6JuezUIuV2wVvY1pmsruhUc9Vq_I
 - Creare l'app che permette di scegliere il canale
 
 ## Milestone 2 (31/10/2018)
+https://drive.google.com/open?id=1UNf1f91jxd9E3ghAH6dYgmSaE9WFTwdu
 - Cambiare canale
 - Modificare il volume
 - Canale + e -
