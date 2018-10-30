@@ -18,11 +18,12 @@ https://drive.google.com/open?id=11wrn6JuezUIuV2wVvY1pmsruhUc9Vq_I
 - Creare una finestra che permette di vedere i canali
 - Creare l'app che permette di scegliere il canale
 
-## Demo 1 (27/10/2018)
+## Milestone 2 (31/10/2018)
 - Cambiare canale
 - Modificare il volume
 - Canale + e -
 
-## Finale (17/11/2018)
+## Demo (17/11/2018)
+- Nuove funzionalità del telecomando ?
 
 Powered by sfemat e Alessio9284
