@@ -1,1 +1,15 @@
-Ore totali: 16
+Milestone 1:
+A scuola:
+3 ore - comunicazione con protocollo TCP
+5 ore - sviluppo programma Visual Basic
+A casa:
+3 ore - sistemazione dei vari pulsanti sul telecomando (spedizione via tcp del numero al click e graficamente)
+4 ore - sviluppo programma Visual Basic (prove fatte con il programma SocketTest)
+3 ora - sistemazione codice VB (aggiunta di una classe con delle funzioni e aggiunta di commenti)
+1 ora - creazione della documentazione
+1 ora - sistemazione codice Java (aggiunta di commenti)
+2 ora - ricerche varie
+
+Milestone 2:
+1 ora - sistemazione della documentazione (readme e docs)
+1 ora - test funzionamento app e programma
