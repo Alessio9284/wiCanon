@@ -15,7 +15,8 @@ Public Class WiCanon
 
     Private Sub wiCanon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Visible = False
-
+        Thread.Sleep(3000)
+        Visible = True
         'Crea e avvia thread per accettare connessioni
         thread = New Thread(AddressOf serverThread) With {
             .IsBackground = True
@@ -44,7 +45,7 @@ Public Class WiCanon
             'Se è un canale
             If IsNumeric(opzione) Then
                 'Se non abbiamo l'IP corrispondente non fare nulla
-                If (Convert.ToInt32(opzione) > func.channels.Length) Then
+                If (Convert.ToInt32(opzione) > func.channels.Length Or Convert.ToInt32(opzione) = 0) Then
 
                     'Se ce l'abbiamo vai a quel canale
                 Else
