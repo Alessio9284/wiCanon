@@ -11,6 +11,7 @@ wiCanon
 - Visual Basic per pc (Visual Basic)
 - Android Studio per l'app dello Smartphone (Java)
 - Utilizzo del protocollo UDP per trasferimenti numerici e/o testuali tra client (telefono) e un server (monitor).
+- Utilizzo del programma VLC per vedere gli stream dei vari canali
 
 ## Milestone 1 (15/10/2018)
 https://drive.google.com/open?id=11wrn6JuezUIuV2wVvY1pmsruhUc9Vq_I
