@@ -9,10 +9,11 @@ Public Class Funzioni
         "http://bit.ly/rete4qdr",
         "http://bit.ly/canale5qdr",
         "https://live3-mediaset-it.akamaized.net/content/hls_clr_xo/live/channel(ch02)/index.m3u8",
-        "http://195.154.134.236:9000/live/alaa1/alaa1/9981.ts",
+        "http://bit.ly/la7qdr",
         "http://par-1.ml/hls/36b35538-7b62-fedb-14ed-efbb87852f8e.m3u8",
         "http://par-1.ml/hls/59c39cf8-3388-ebfc-1dcd-d660c566f7c0.m3u8",
-        "http://skyianywhere2-i.akamaihd.net/hls/live/200275/tg24/playlist.m3u8"
+        "http://skyianywhere2-i.akamaihd.net/hls/live/200275/tg24/playlist.m3u8",
+        "https://live3-mediaset-it.akamaized.net/content/hls_clr_xo/live/channel(ch05)/index.m3u8"
     }
     Public currentChannelString As String
     Public currentChannelInteger As Integer = 0

@@ -15,9 +15,6 @@ Public Class WiCanon
 
     Private Sub wiCanon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Visible = False
-        'Aspetta 3 secondi per la schermata di avvio
-        Thread.Sleep(3000)
-        Visible = True
 
         'Crea e avvia thread per accettare connessioni
         thread = New Thread(AddressOf serverThread) With {
@@ -44,13 +41,17 @@ Public Class WiCanon
             'Chiudi VLC in caso sia già aperto
             Process.Start("CMD", "/C taskkill /im vlc.exe /f")
 
-            'Se è un canale vai a quel canale
+            'Se è un canale
             If IsNumeric(opzione) Then
-                func.currentChannelInteger = Convert.ToInt32(opzione) - 1
-                func.currentChannelString = func.GetChannelIP(func.currentChannelInteger)
+                'Se non abbiamo l'IP corrispondente non fare nulla
+                If (Convert.ToInt32(opzione) > func.channels.Length) Then
 
-                func.close_openVLC(func.volume, func.currentChannelString)
-
+                    'Se ce l'abbiamo vai a quel canale
+                Else
+                    func.currentChannelInteger = Convert.ToInt32(opzione) - 1
+                    func.currentChannelString = func.GetChannelIP(func.currentChannelInteger)
+                    func.close_openVLC(func.volume, func.currentChannelString)
+                End If
                 'Altrimenti esegui la funzione correlata alla lettera
             Else
                 ' In base alla lettera chiude l'applicazione o alza il volume ecc..

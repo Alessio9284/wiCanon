@@ -42,3 +42,7 @@ C:\Users\Roberto\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.Start.resourc
 C:\Users\Roberto\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
 C:\Users\Roberto\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\AudioSwitcher.AudioApi.dll
 C:\Users\Roberto\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.vbproj.CopyComplete
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\wiCanon.exe.manifest
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\bin\Debug\wiCanon.application
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.exe.manifest
+C:\Users\matte\Desktop\wiCanon\wiCanon\wiCanon\obj\Debug\wiCanon.application

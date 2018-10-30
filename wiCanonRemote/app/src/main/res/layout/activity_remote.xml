@@ -233,7 +233,7 @@
         android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
         android:onClick="onClick"
-        android:text="@string/dieci"
+        android:text="@string/zero"
         android:textColor="@android:color/transparent"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
