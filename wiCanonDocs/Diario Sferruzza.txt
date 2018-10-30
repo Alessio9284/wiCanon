@@ -1,0 +1,10 @@
+Milestone 1:
+A scuola:
+3 ore - comunicazione con protocollo TCP
+5 ore - sviluppo App Android telecomando
+A casa:
+2 ore - codice TCP non funzionante e inutilmente lento: passaggio a UDP
+
+Milestone 2:
+2 ore - Aggiunto supporto ai canali a più cifre
+1 ora - Aggiunta lista canali nel file README, nuovo canale: Italia 2 (n. 11) e sistemati alcuni canali non funzionanti
